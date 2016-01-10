@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>empty.svg</file>
+        <file>error.svg</file>
+        <file>help.svg</file>
+        <file>information.svg</file>
+        <file>warning.svg</file>
+    </qresource>
+</RCC>

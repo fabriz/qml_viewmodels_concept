@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/qml/layout_1/fmcontrols">
+        <file>qmldir</file>
+        <file>FmMetrics.qml</file>
+        <file>FmInternalTextField.qml</file>
+        <file>FmFieldBase.qml</file>
+        <file>FmFieldDouble.qml</file>
+        <file>FmFieldDropDown.qml</file>
+        <file>FmFieldInteger.qml</file>
+        <file>FmFieldMemo.qml</file>
+        <file>FmFieldPassword.qml</file>
+        <file>FmFieldQuantity.qml</file>
+        <file>FmFieldSwitch.qml</file>
+        <file>FmFieldText.qml</file>
+        <file>FmVerticalScroller.qml</file>
+        <file>FmForm.qml</file>
+        <file>FmFormFieldTemplate.qml</file>
+        <file>FmPage.qml</file>
+        <file>FmFormFieldStatusIndicator.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/qml/layout_1/pages">
+        <file>MenuPage.qml</file>
+        <file>BasicControlsPage.qml</file>
+        <file>SimpleFormPage.qml</file>
+        <file>SimpleScrollingFormPage.qml</file>
+        <file>ComplexFormPage.qml</file>
+        <file>ComplexTabbedFormPage.qml</file>
+        <file>SettingsPage.qml</file>
+    </qresource>
+</RCC>
