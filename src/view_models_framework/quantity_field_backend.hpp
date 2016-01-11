@@ -34,6 +34,8 @@ public:
     double scalingFactor() const;
     double valueOffset() const;
 
+    bool isValueInRange() const;
+
 signals:
     void valueChanged();
     void minValueChanged();

@@ -29,7 +29,8 @@ SimpleFormPageViewModel::SimpleFormPageViewModel(QObject* parent) : AbstractView
 
     m_age = new IntFieldBackend(this, m_modelEntity.age);
     m_age->setValueRange(10, 50);
-    m_age->statusMessages()->addInformationMessage("Info message");
+    m_age->statusMessages()->addErrorMessage("Age is not valid");
+    m_age->statusMessages()->addInformationMessage("Insert your age");
 
     m_gender = new DropDownFieldBackend (this, *(int*)(&m_modelEntity.gender), genders);
 

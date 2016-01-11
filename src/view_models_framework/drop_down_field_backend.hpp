@@ -25,7 +25,7 @@ public:
 
     void addItem(int value, const QString& text)
     {
-        m_items.push_back(item{(int)m_items.size(), value, text});
+        m_items.push_back(item {(int)m_items.size(), value, text});
     }
 
 private:

@@ -47,6 +47,12 @@ int IntFieldBackend::maxValue() const
 }
 
 
+bool IntFieldBackend::isValueInRange() const
+{
+    return ((m_value >= m_minValue) && (m_value <= m_maxValue));
+}
+
+
 void IntFieldBackend::setValue(int value)
 {
     if (m_value != value)

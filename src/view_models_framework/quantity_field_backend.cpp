@@ -92,6 +92,12 @@ double QuantityFieldBackend::valueOffset() const
 }
 
 
+bool QuantityFieldBackend::isValueInRange() const
+{
+    return ((m_value >= m_minValue) && (m_value <= m_maxValue));
+}
+
+
 void QuantityFieldBackend::setValue(double value)
 {
     if (m_value != value)

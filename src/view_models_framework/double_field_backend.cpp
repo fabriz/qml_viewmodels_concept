@@ -66,6 +66,12 @@ int DoubleFieldBackend::decimals() const
 }
 
 
+bool DoubleFieldBackend::isValueInRange() const
+{
+    return ((m_value >= m_minValue) && (m_value <= m_maxValue));
+}
+
+
 void DoubleFieldBackend::setValue(double value)
 {
     if (m_value != value)

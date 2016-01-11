@@ -23,7 +23,7 @@ public:
     {
     }
 
-    operator const TYPE&() const
+    operator const TYPE& () const
     {
         return m_value;
     }

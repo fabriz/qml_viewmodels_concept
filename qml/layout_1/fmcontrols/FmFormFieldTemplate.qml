@@ -12,7 +12,6 @@ Item {
     property alias fieldLabel: labelCtrl.text
     property alias showFieldLabel: labelCtrl.visible
     property alias fieldCtrl: placeholderCtrl.children
-    property alias messageStatus: statusIndicator.messageStatus
     property var backend: null
 
     signal statusIndicatorClicked(FieldMessages messages)
@@ -54,6 +53,7 @@ Item {
                 width: FmMetrics.textFieldHeight
                 height: FmMetrics.textFieldHeight
                 enabled: (backend !== null) ? backend.enabled : false
+                messageStatus: (backend !== null) ? backend.statusMessages.messageStatus : FieldMessage.NONE
                 enableClick: true
 
                 onClicked: {

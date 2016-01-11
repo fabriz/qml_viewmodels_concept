@@ -20,6 +20,7 @@ FmFieldBase {
         id: internalField
 
         anchors.fill: parent
+        activeFocusOnPress: true
         currentIndex: (backend !== null) ? backend.value : -1
         editable: false
         model: (backend !== null) ? backend.model : null

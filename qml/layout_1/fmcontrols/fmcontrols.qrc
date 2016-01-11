@@ -12,6 +12,7 @@
         <file>FmFieldQuantity.qml</file>
         <file>FmFieldSwitch.qml</file>
         <file>FmFieldText.qml</file>
+        <file>FmFieldVoid.qml</file>
         <file>FmVerticalScroller.qml</file>
         <file>FmForm.qml</file>
         <file>FmFormFieldTemplate.qml</file>

@@ -29,7 +29,7 @@ Item {
             var fld = objModel.children[i]
             if ('backend' in fld) {
                 var obj = fieldTemplate.createObject(fieldsGrid, {"fieldLabel": fld.label, "showFieldLabel": fld.formFieldShowLabel,
-                                                         "fieldCtrl": fld, "messageStatus": fld.messageStatus, "backend": fld.backend, "Layout.fillWidth": true,
+                                                         "fieldCtrl": fld, "backend": fld.backend, "Layout.fillWidth": true,
                                                          "Layout.alignment": Qt.AlignTop, "Layout.columnSpan": fld.formFieldSpan})
                 fld.anchors.fill = fld.parent
                 obj.statusIndicatorClicked.connect(ctrlRoot.statusIndicatorClicked)

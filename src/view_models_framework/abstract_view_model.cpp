@@ -89,4 +89,24 @@ void AbstractViewModel::do_updateView()
 }
 
 
+void AbstractViewModel::clearFieldsMessages()
+{
+    QList<FieldBackendBase*> fields = QObject::findChildren<FieldBackendBase*>(QString(), Qt::FindDirectChildrenOnly);
+    for (FieldBackendBase* field : fields)
+    {
+        field->statusMessages()->clearMessages();
+    }
+}
+
+
+void AbstractViewModel::deleteFieldsMessagesBySeverity(FieldMessage::MessageSeverity minSeverityToDelete)
+{
+    QList<FieldBackendBase*> fields = QObject::findChildren<FieldBackendBase*>(QString(), Qt::FindDirectChildrenOnly);
+    for (FieldBackendBase* field : fields)
+    {
+        field->statusMessages()->deleteMessagesBySeverity(minSeverityToDelete);
+    }
+}
+
+
 } // namespace ViewModelsFramework

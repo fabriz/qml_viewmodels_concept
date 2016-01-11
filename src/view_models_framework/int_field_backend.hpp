@@ -26,6 +26,8 @@ public:
     int minValue() const;
     int maxValue() const;
 
+    bool isValueInRange() const;
+
 signals:
     void valueChanged();
     void minValueChanged();

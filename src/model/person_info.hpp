@@ -8,7 +8,7 @@ namespace Model
 
 enum Gender : int
 {
-    GENDER_UNKNOWN  = 0,
+    GENDER_UNKNOWN = 0,
     GENDER_MALE,
     GENDER_FEMALE,
 };

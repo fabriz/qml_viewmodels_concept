@@ -32,6 +32,9 @@ public:
 
     void updateView();
 
+    void clearFieldsMessages();
+    void deleteFieldsMessagesBySeverity(FieldMessage::MessageSeverity minSeverityToDelete);
+
 signals:
     void modifiedChanged();
 

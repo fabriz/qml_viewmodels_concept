@@ -32,6 +32,7 @@ FmPage {
 
         FmForm {
             columns: 1
+            onStatusIndicatorClicked: appWindow.showFieldMessages(messages)
 
             FmFieldText     {backend: viewModel.name;                   label: qsTr("Name")}
             FmFieldPassword {backend: viewModel.password;               label: qsTr("Password")}

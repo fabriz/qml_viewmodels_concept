@@ -32,7 +32,6 @@ public:
         ERROR
     };
 
-//    explicit FieldMessage(QObject* parent = nullptr);
     FieldMessage(MessageSeverity severity, const QString& message, QObject* parent = nullptr);
     virtual ~FieldMessage();
 
@@ -64,6 +63,8 @@ public:
 
     void addMessage(FieldMessage::MessageSeverity severity, const QString& message);
     void clearMessages();
+    void deleteMessagesBySeverity(FieldMessage::MessageSeverity minSeverityToDelete);
+
     void addHelpMessage(const QString& message);
     void addInformationMessage(const QString& message);
     void addWarningMessage(const QString& message);

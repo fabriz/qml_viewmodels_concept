@@ -51,19 +51,11 @@ FmPage {
         }
 
         Button {
-            text: "5 - Tabbed form - Tabbed form, same layout and ViewModel of (4)"
+            text: "5 - Tabbed form - Tabbed form, same ViewModel of (4)"
             anchors.left: parent.left
             anchors.right: parent.right
             height: Math.round(FmMetrics.buttonHeight * 2)
             onClicked: appStackView.push(Qt.resolvedUrl("ComplexTabbedFormPage.qml"))
-        }
-
-        Button {
-            text: "Settings form - Complex tabbed settings page"
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: Math.round(FmMetrics.buttonHeight * 2)
-            onClicked: appStackView.push(Qt.resolvedUrl("SettingsPage.qml"))
         }
     }
 }

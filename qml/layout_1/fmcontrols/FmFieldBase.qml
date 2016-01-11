@@ -8,7 +8,6 @@ Item {
     property FieldBackendBase __backendBase: null
 
     property string label: (__backendBase !== null) ? __backendBase.label : ""
-    property int messageStatus: (__backendBase !== null) ? __backendBase.statusMessages.messageStatus : FieldMessage.NONE
     enabled: (__backendBase !== null) ? __backendBase.enabled : false
     visible: (__backendBase !== null) ? __backendBase.visible : true
 

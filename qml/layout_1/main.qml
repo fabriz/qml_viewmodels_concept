@@ -51,6 +51,7 @@ ApplicationWindow {
             Button {
                 id: acceptButton
                 text: qsTr("Accept")
+                activeFocusOnPress: true
                 enabled: (appStackView && appStackView.currentItem) ? appStackView.currentItem.enableAcceptButton : false
                 visible: (appStackView && appStackView.currentItem) ? appStackView.currentItem.showAcceptButton : false
                 onClicked: appStackView.currentItem.acceptButtonPressed()
@@ -97,8 +98,10 @@ ApplicationWindow {
 
         ListView {
             id: messagesList
+            height: 200
 
             delegate: Row {
+                height: Math.round(FmMetrics.textFieldHeight * 1.5)
 
                 FmFormFieldStatusIndicator {
                     width: FmMetrics.textFieldHeight

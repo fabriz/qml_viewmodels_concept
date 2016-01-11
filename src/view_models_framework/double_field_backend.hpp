@@ -28,6 +28,8 @@ public:
     double maxValue() const;
     int decimals() const;
 
+    bool isValueInRange() const;
+
 signals:
     void valueChanged();
     void minValueChanged();

@@ -23,6 +23,7 @@ FmFieldBase {
             id: internalField
 
             anchors.fill: parent
+            activeFocusOnPress: true
             checked: (backend !== null) ? backend.value : false
 
             onCheckedChanged: {

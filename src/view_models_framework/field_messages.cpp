@@ -1,5 +1,6 @@
 #include "field_messages.hpp"
 
+#include <QMutableListIterator>
 
 
 namespace ViewModelsFramework
@@ -58,8 +59,23 @@ int FieldMessages::messageStatus() const
 
 void FieldMessages::addMessage(FieldMessage::MessageSeverity severity, const QString& message)
 {
-    FieldMessage* msg = new FieldMessage(severity, message, this);
-    m_messages.append(msg);    // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    FieldMessage* newMsg = new FieldMessage(severity, message, this);
+
+    QMutableListIterator<FieldMessage*> it(m_messages);
+    while (it.hasNext())
+    {
+        if (it.next()->severity() < severity)
+        {
+            it.insert(newMsg);
+            newMsg = nullptr;
+            break;
+        }
+    }
+
+    if (newMsg)
+    {
+        m_messages.append(newMsg);
+    }
 
     emit messagesChanged();
 
@@ -86,6 +102,35 @@ void FieldMessages::clearMessages()
     if (m_messageStatus != FieldMessage::NONE)
     {
         m_messageStatus = FieldMessage::NONE;
+        emit messageStatusChanged();
+    }
+}
+
+
+void FieldMessages::deleteMessagesBySeverity(FieldMessage::MessageSeverity minSeverityToDelete)
+{
+    FieldMessage::MessageSeverity maxSeverity = FieldMessage::NONE;
+
+    QMutableListIterator<FieldMessage*> it(m_messages);
+    while (it.hasNext())
+    {
+        const FieldMessage* msg = it.next();
+        if (msg->severity() >= minSeverityToDelete)
+        {
+            it.remove();
+        }
+        else
+        {
+            if (maxSeverity < msg->severity())
+            {
+                maxSeverity = msg->severity();
+            }
+        }
+    }
+
+    if (m_messageStatus != maxSeverity)
+    {
+        m_messageStatus = maxSeverity;
         emit messageStatusChanged();
     }
 }
@@ -132,22 +177,6 @@ void FieldMessages::endFieldUpdate()
         emit messageStatusChanged();
     }
 }
-
-
-/*
-class FieldMessages : public QObject
-{
-signals:
-    void messagesChanged();
-
-private:
-    QList<FieldMessage*>        m_messages;
-};
-*/
-
-
-
-
 
 
 } // namespace ViewModelsFramework
