@@ -22,6 +22,7 @@ HEADERS += \
     src/view_models_framework/switch_field_backend.hpp \
     src/view_models_framework/text_field_backend.hpp \
     src/model/person_info.hpp \
+    src/model/sample_settings.hpp \
     src/view_models/view_models_registration.hpp \
     src/view_models/basic_controls_page_view_model.hpp \
     src/view_models/simple_form_page_view_model.hpp \
