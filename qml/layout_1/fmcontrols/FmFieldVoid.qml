@@ -9,7 +9,7 @@ FmFieldBase {
 
 	id: ctrlRoot
 
-	property var backend: null
+    readonly property var backend: null
 
 	property string label: ""
 	property int messageStatus: FieldMessage.NONE

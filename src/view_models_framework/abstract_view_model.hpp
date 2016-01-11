@@ -54,8 +54,10 @@ private:
 
 #define DECLARE_FIELD_BACKEND(FIELD_TYPE, FIELD_NAME) \
     Q_PROPERTY(ViewModelsFramework::FIELD_TYPE* FIELD_NAME READ FIELD_NAME CONSTANT)\
-    ViewModelsFramework::FIELD_TYPE* m_##FIELD_NAME;\
-    ViewModelsFramework::FIELD_TYPE* FIELD_NAME() {return m_##FIELD_NAME;}
+    ViewModelsFramework::FIELD_TYPE* m_##FIELD_NAME = nullptr;\
+    ViewModelsFramework::FIELD_TYPE* FIELD_NAME() {\
+        if (!m_##FIELD_NAME) qDebug("WARNING!!! Field m_" #FIELD_NAME " is null!!!");\
+        return m_##FIELD_NAME;}
 
 
 
