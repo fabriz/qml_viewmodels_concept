@@ -50,8 +50,8 @@ FmPage {
                     columns: 3
                     onStatusIndicatorClicked: appWindow.showFieldMessages(messages)
 
-                    FmFieldText     {backend: viewModel.street;                     label: qsTr("Street"); formFieldSpan: 3}
-                    FmFieldText     {backend: viewModel.city;                       label: qsTr("City"); formFieldSpan: 3}
+                    FmFieldText     {backend: viewModel.street;                     label: qsTr("Street"); columnSpan: 3}
+                    FmFieldText     {backend: viewModel.city;                       label: qsTr("City"); columnSpan: 3}
                     FmFieldText     {backend: viewModel.stateOrProvince;            label: qsTr("State/Province")}
                     FmFieldText     {backend: viewModel.postalCode;                 label: qsTr("Postal code")}
                     FmFieldText     {backend: viewModel.country;                    label: qsTr("Country")}
@@ -73,7 +73,7 @@ FmPage {
                     FmFieldQuantity {backend: viewModel.temperatureMax;             label: qsTr("Maximum temperature")}
                     FmFieldQuantity {backend: viewModel.temperatureValue;           label: qsTr("Temperature")}
                     FmFieldVoid     { }
-                    FmFieldMemo     {backend: viewModel.notes;                      label: qsTr("Notes"); formFieldSpan: 2}
+                    FmFieldMemo     {backend: viewModel.notes;                      label: qsTr("Notes"); columnSpan: 2}
                 }
             }
         }
@@ -92,7 +92,7 @@ FmPage {
                     FmFieldPassword {backend: viewModel.password;                   label: qsTr("Password")}
                     FmFieldText     {backend: viewModel.firstName;                  label: qsTr("First name")}
                     FmFieldText     {backend: viewModel.lastName;                   label: qsTr("Last name")}
-                    FmFieldMemo     {backend: viewModel.notes;                      label: qsTr("Notes"); formFieldSpan: 2}
+                    FmFieldMemo     {backend: viewModel.notes;                      label: qsTr("Notes"); columnSpan: 2}
                 }
             }
         }
@@ -107,8 +107,8 @@ FmPage {
                     columns: 3
                     onStatusIndicatorClicked: appWindow.showFieldMessages(messages)
 
-                    FmFieldText     {backend: viewModel.street;                     label: qsTr("Street"); formFieldSpan: 3}
-                    FmFieldText     {backend: viewModel.city;                       label: qsTr("City"); formFieldSpan: 3}
+                    FmFieldText     {backend: viewModel.street;                     label: qsTr("Street"); columnSpan: 3}
+                    FmFieldText     {backend: viewModel.city;                       label: qsTr("City"); columnSpan: 3}
                     FmFieldText     {backend: viewModel.stateOrProvince;            label: qsTr("State/Province")}
                     FmFieldText     {backend: viewModel.postalCode;                 label: qsTr("Postal code")}
                     FmFieldText     {backend: viewModel.country;                    label: qsTr("Country")}

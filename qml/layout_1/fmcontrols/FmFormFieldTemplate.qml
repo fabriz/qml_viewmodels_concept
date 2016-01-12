@@ -9,24 +9,22 @@ import "."
 
 Item {
 
-    property alias fieldLabel: labelCtrl.text
-    property alias showFieldLabel: labelCtrl.visible
-    property alias fieldCtrl: placeholderCtrl.children
-    property var backend: null
+    id: ctrlRoot
+
+    property var field: null
 
     signal statusIndicatorClicked(FieldMessages messages)
-
 
     width: 200
     height: innerColumn.height
 
-//    Rectangle {
-//        color: "transparent"
-//        border.color: "green"
-//        border.width: 4
-//        anchors.fill: innerColumn
-//        anchors.margins: -4
-//    }
+    //    Rectangle {
+    //        color: "transparent"
+    //        border.color: "green"
+    //        border.width: 4
+    //        anchors.fill: innerColumn
+    //        anchors.margins: -4
+    //    }
 
     ColumnLayout {
         id: innerColumn
@@ -34,10 +32,11 @@ Item {
         anchors.right: parent.right
 
         Label {
-            id: labelCtrl
+            text: (field !== null) ? field.label : ""
             anchors.left: parent.left
             anchors.right: parent.right
-            enabled: (backend !== null) ? backend.enabled : false
+            enabled: (field !== null) ? field.enabled : false
+            visible: (field !== null) ? field.showLabel : true
         }
 
         RowLayout {
@@ -46,19 +45,20 @@ Item {
                 id: placeholderCtrl
                 height: childrenRect.height
                 Layout.fillWidth: true
+                children: field
             }
 
             FmFormFieldStatusIndicator {
                 id: statusIndicator
                 width: FmMetrics.textFieldHeight
                 height: FmMetrics.textFieldHeight
-                enabled: (backend !== null) ? backend.enabled : false
-                messageStatus: (backend !== null) ? backend.statusMessages.messageStatus : FieldMessage.NONE
+                enabled: (field !== null) ? field.enabled : false
+                messageStatus: ((field !== null) && (field.backend !== null)) ? field.backend.statusMessages.messageStatus : FieldMessage.NONE
                 enableClick: true
 
                 onClicked: {
-                    if (backend !== null) {
-                        statusIndicatorClicked(backend.statusMessages)
+                    if ((field !== null) && (field.backend !== null)) {
+                        statusIndicatorClicked(field.backend.statusMessages)
                     }
                 }
             }

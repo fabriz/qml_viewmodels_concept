@@ -68,7 +68,10 @@ lupdate_only {
     SOURCES += \
     qml/layout_1/*.qml \
     qml/layout_1/fmcontrols/*.qml \
-    qml/layout_1/pages/*.qml
+    qml/layout_1/pages/*.qml \
+    qml/layout_2/*.qml \
+    qml/layout_3/*.qml \
+    qml/layout_4/*.qml
 }
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
