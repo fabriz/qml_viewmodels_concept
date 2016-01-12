@@ -105,10 +105,31 @@ void ComplexFormPageViewModel::do_updateView()
     m_priceMax->setPrefixText(Model::currencyUnitToSymbol(m_modelEntity.priceUnit));
     m_priceValue->setPrefixText(Model::currencyUnitToSymbol(m_modelEntity.priceUnit));
 
-    m_temperatureMin->setSuffixText(Model::temperatureUnitToSymbol(m_modelEntity.temperatureUnit));
-    m_temperatureMax->setSuffixText(Model::temperatureUnitToSymbol(m_modelEntity.temperatureUnit));
-    m_temperatureValue->setSuffixText(Model::temperatureUnitToSymbol(m_modelEntity.temperatureUnit));
+    QString temperatureUm = Model::temperatureUnitToSymbol(m_modelEntity.temperatureUnit);
+    double temperatureUmFactor = 1.0;
+    double temperatureUmOffset = 0.0;
 
+    switch (m_modelEntity.temperatureUnit)
+    {
+    case Model::TEMPERATURE_UNIT_CELSIUS:
+        temperatureUmFactor = 1.0;
+        temperatureUmOffset = 0.0;
+        break;
+
+    case Model::TEMPERATURE_UNIT_FAHRENHEIT:
+        temperatureUmFactor = (9.0 / 5.0);
+        temperatureUmOffset = 32.0;
+        break;
+
+    case Model::TEMPERATURE_UNIT_KELVIN:
+        temperatureUmFactor = 1.0;
+        temperatureUmOffset = 273.15;
+        break;
+    }
+
+    m_temperatureMin->setQuantityParameters("", temperatureUm, temperatureUmFactor, temperatureUmOffset, 1);
+    m_temperatureMax->setQuantityParameters("", temperatureUm, temperatureUmFactor, temperatureUmOffset, 1);
+    m_temperatureValue->setQuantityParameters("", temperatureUm, temperatureUmFactor, temperatureUmOffset, 1);
 
     if (!m_priceMin->isValueInRange())
     {
@@ -154,7 +175,6 @@ void ComplexFormPageViewModel::do_updateView()
     {
         m_temperatureValue->statusMessages()->addErrorMessage("Value is out of range");
     }
-
 }
 
 

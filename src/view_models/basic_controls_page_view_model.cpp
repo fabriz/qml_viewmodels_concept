@@ -28,7 +28,7 @@ BasicControlsPageViewModel::BasicControlsPageViewModel(QObject* parent) : Abstra
     m_age = new IntFieldBackend(this, m_modelEntity.age);
     m_age->setValueRange(10, 50);
 
-    m_gender = new DropDownFieldBackend (this, *(int*)(&m_modelEntity.gender), genders);
+    m_gender = new DropDownFieldBackend(this, *(int*)(&m_modelEntity.gender), genders);
 
     m_height = new QuantityFieldBackend(this, m_modelEntity.height);
     m_height->setSuffixText("cm");

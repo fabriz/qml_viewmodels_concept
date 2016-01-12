@@ -1,7 +1,7 @@
 #include "quantity_field_backend.hpp"
 
-#include <limits>
 #include <cmath>
+#include <limits>
 
 #include "abstract_view_model.hpp"
 
@@ -12,6 +12,18 @@ namespace
 double roundDouble(double value, int decimals)
 {
     return (std::floor((value * std::pow(10.0, decimals)) + 0.5) / std::pow(10.0, decimals));
+}
+
+
+double internalValueToDisplayValue(double value, double scalingFactor, double valueOffset, int decimals)
+{
+    return roundDouble(((value * scalingFactor) + valueOffset), decimals);
+}
+
+
+double displayValueToInternalValue(double value, double scalingFactor, double valueOffset, int decimals)
+{
+    return ((roundDouble(value, decimals) - valueOffset) / scalingFactor);
 }
 
 }
@@ -46,19 +58,37 @@ QuantityFieldBackend::~QuantityFieldBackend()
 
 double QuantityFieldBackend::value() const
 {
-    return roundDouble(m_value, m_decimals);
+    return m_value;
 }
 
 
 double QuantityFieldBackend::minValue() const
 {
-    return roundDouble(m_minValue, m_decimals);
+    return m_minValue;
 }
 
 
 double QuantityFieldBackend::maxValue() const
 {
-    return roundDouble(m_maxValue, m_decimals);
+    return m_maxValue;
+}
+
+
+double QuantityFieldBackend::displayValue() const
+{
+    return internalValueToDisplayValue(m_value, m_scalingFactor, m_valueOffset, m_decimals);
+}
+
+
+double QuantityFieldBackend::minDisplayValue() const
+{
+    return internalValueToDisplayValue(m_minValue, m_scalingFactor, m_valueOffset, m_decimals);
+}
+
+
+double QuantityFieldBackend::maxDisplayValue() const
+{
+    return internalValueToDisplayValue(m_maxValue, m_scalingFactor, m_valueOffset, m_decimals);
 }
 
 
@@ -102,7 +132,7 @@ void QuantityFieldBackend::setValue(double value)
 {
     if (m_value != value)
     {
-        m_value = roundDouble(value, m_decimals);
+        m_value = value;
         emit valueChanged();
     }
 }
@@ -112,7 +142,7 @@ void QuantityFieldBackend::setMinValue(double value)
 {
     if (m_minValue != value)
     {
-        m_minValue = roundDouble(value, m_decimals);
+        m_minValue = value;
         emit minValueChanged();
     }
 }
@@ -122,9 +152,15 @@ void QuantityFieldBackend::setMaxValue(double value)
 {
     if (m_maxValue != value)
     {
-        m_maxValue = roundDouble(value, m_decimals);
+        m_maxValue = value;
         emit maxValueChanged();
     }
+}
+
+
+void QuantityFieldBackend::setDisplayValue(double value)
+{
+    setValue(displayValueToInternalValue(value, m_scalingFactor, m_valueOffset, m_decimals));
 }
 
 
@@ -182,6 +218,16 @@ void QuantityFieldBackend::setValueOffset(double value)
         m_valueOffset = value;
         emit valueChanged();
     }
+}
+
+
+void QuantityFieldBackend::setQuantityParameters(const QString& prefixText, const QString& suffixText, double scalingFactor, double valueOffset, int decimals)
+{
+    setPrefixText(prefixText);
+    setSuffixText(suffixText);
+    setScalingFactor(scalingFactor);
+    setValueOffset(valueOffset);
+    setDecimals(decimals);
 }
 
 

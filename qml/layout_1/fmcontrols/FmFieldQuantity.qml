@@ -25,14 +25,14 @@ FmFieldBase {
         horizontalAlignment: TextInput.AlignRight
         inputMethodHints: Qt.ImhFormattedNumbersOnly
         readOnly: (backend !== null) ? backend.readOnly : false
-        text: (backend !== null) ? backend.value.toFixed(backend.decimals) : "## NOT BOUND ##"
+        text: (backend !== null) ? backend.displayValue.toFixed(backend.decimals) : "## NOT BOUND ##"
 
         leftPadding: (prefixText === "") ? internalField.defaultPadding : (2 * internalField.defaultPadding) + labelPrefix.width
         rightPadding: (suffixText === "") ? internalField.defaultPadding : (2 * internalField.defaultPadding) + labelSuffix.width
 
         validator: DoubleValidator {
-            bottom: (backend !== null) ? backend.minValue : 0
-            top: (backend !== null) ? backend.maxValue : 0
+            bottom: (backend !== null) ? backend.minDisplayValue : 0
+            top: (backend !== null) ? backend.maxDisplayValue : 0
             decimals: (backend !== null) ? backend.decimals : 0
             notation: DoubleValidator.StandardNotation
         }
@@ -55,7 +55,7 @@ FmFieldBase {
 
         onUpdateBackendValue: {
             if (backend !== null) {
-                backend.setValue(internalField.text)
+                backend.setDisplayValue(internalField.text)
             }
         }
     }

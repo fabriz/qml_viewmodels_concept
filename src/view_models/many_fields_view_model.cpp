@@ -45,6 +45,8 @@ ManyFieldsViewModel::ManyFieldsViewModel(QObject* parent) : AbstractViewModel(pa
     m_field_28 = new TextFieldBackend(this, m_strings[27], -1, "Field 28");
     m_field_29 = new TextFieldBackend(this, m_strings[28], -1, "Field 29");
     m_field_30 = new TextFieldBackend(this, m_strings[29], -1, "Field 30");
+
+    updateView();
 }
 
 

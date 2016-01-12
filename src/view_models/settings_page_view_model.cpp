@@ -39,6 +39,8 @@ SettingsPageViewModel::SettingsPageViewModel(QObject* parent) : AbstractViewMode
     m_field_60 = new PasswordFieldBackend(this, m_stringVal);
     m_field_61 = new PasswordFieldBackend(this, m_stringVal);
     m_field_62 = new PasswordFieldBackend(this, m_stringVal);
+
+    updateView();
 }
 
 

@@ -32,7 +32,7 @@ SimpleFormPageViewModel::SimpleFormPageViewModel(QObject* parent) : AbstractView
     m_age->statusMessages()->addErrorMessage("Age is not valid");
     m_age->statusMessages()->addInformationMessage("Insert your age");
 
-    m_gender = new DropDownFieldBackend (this, *(int*)(&m_modelEntity.gender), genders);
+    m_gender = new DropDownFieldBackend(this, *(int*)(&m_modelEntity.gender), genders);
 
     m_height = new QuantityFieldBackend(this, m_modelEntity.height);
     m_height->setSuffixText("cm");

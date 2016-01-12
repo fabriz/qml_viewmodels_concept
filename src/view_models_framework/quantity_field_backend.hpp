@@ -15,6 +15,9 @@ class QuantityFieldBackend : public EditFieldBackendBase
     Q_PROPERTY(double value READ value NOTIFY valueChanged)
     Q_PROPERTY(double minValue READ minValue NOTIFY minValueChanged)
     Q_PROPERTY(double maxValue READ maxValue NOTIFY maxValueChanged)
+    Q_PROPERTY(double displayValue READ displayValue NOTIFY valueChanged)
+    Q_PROPERTY(double minDisplayValue READ minDisplayValue NOTIFY minValueChanged)
+    Q_PROPERTY(double maxDisplayValue READ maxDisplayValue NOTIFY maxValueChanged)
     Q_PROPERTY(int decimals READ decimals NOTIFY decimalsChanged)
     Q_PROPERTY(QString prefixText READ prefixText NOTIFY prefixTextChanged)
     Q_PROPERTY(QString suffixText READ suffixText NOTIFY suffixTextChanged)
@@ -28,6 +31,9 @@ public:
     double value() const;
     double minValue() const;
     double maxValue() const;
+    double displayValue() const;
+    double minDisplayValue() const;
+    double maxDisplayValue() const;
     int decimals() const;
     QString prefixText() const;
     QString suffixText() const;
@@ -48,12 +54,14 @@ public slots:
     void setValue(double value);
     void setMinValue(double value);
     void setMaxValue(double value);
+    void setDisplayValue(double value);
     void setValueRange(double minVal, double maxVal);
     void setDecimals(int value);
     void setPrefixText(const QString& value);
     void setSuffixText(const QString& value);
     void setScalingFactor(double value);
     void setValueOffset(double value);
+    void setQuantityParameters(const QString& prefixText, const QString& suffixText, double scalingFactor, double valueOffset, int decimals);
 
 protected:
     void beginFieldUpdate() override;

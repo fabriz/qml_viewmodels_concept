@@ -20,6 +20,8 @@ FieldBackendBase::FieldBackendBase(AbstractViewModel* parent, int fieldId, const
     m_visible(true),
     m_statusMessages(new FieldMessages(this))
 {
+    // Disable signals during object construction
+    QObject::blockSignals(true);
 }
 
 
