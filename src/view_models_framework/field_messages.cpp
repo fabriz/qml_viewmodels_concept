@@ -59,22 +59,27 @@ int FieldMessages::messageStatus() const
 
 void FieldMessages::addMessage(FieldMessage::MessageSeverity severity, const QString& message)
 {
-    FieldMessage* newMsg = new FieldMessage(severity, message, this);
-
+    bool added = false;
     QMutableListIterator<FieldMessage*> it(m_messages);
     while (it.hasNext())
     {
-        if (it.next()->severity() < severity)
+        const FieldMessage* msg = it.next();
+
+        if ((msg->severity() == severity) && (msg->message() == message))
         {
-            it.insert(newMsg);
-            newMsg = nullptr;
+            return;
+        }
+        else if (msg->severity() < severity)
+        {
+            it.insert(new FieldMessage(severity, message, this));
+            added = true;
             break;
         }
     }
 
-    if (newMsg)
+    if (!added)
     {
-        m_messages.append(newMsg);
+        m_messages.append(new FieldMessage(severity, message, this));
     }
 
     emit messagesChanged();
