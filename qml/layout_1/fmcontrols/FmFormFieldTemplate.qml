@@ -17,6 +17,7 @@ Item {
 
     width: 200
     height: innerColumn.height
+    visible: ((field !== null) && (field.backend !== null)) ? field.backend.visible : true
 
     //    Rectangle {
     //        color: "transparent"
