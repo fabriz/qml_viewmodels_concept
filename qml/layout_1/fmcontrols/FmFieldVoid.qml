@@ -7,11 +7,6 @@ import ViewModelsFramework 1.0
 
 FmFieldBase {
 
-	id: ctrlRoot
-
     readonly property var backend: null
-
-	property string label: ""
-	property int messageStatus: FieldMessage.NONE
-	property bool formFieldShowLabel: false
+    readonly property string label: ""
 }
