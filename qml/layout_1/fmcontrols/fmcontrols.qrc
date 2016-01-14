@@ -18,5 +18,6 @@
         <file>FmFormFieldTemplate.qml</file>
         <file>FmPage.qml</file>
         <file>FmFormFieldStatusIndicator.qml</file>
+        <file>FmFieldLabel.qml</file>
     </qresource>
 </RCC>

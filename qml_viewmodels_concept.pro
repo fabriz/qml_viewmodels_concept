@@ -12,10 +12,12 @@ HEADERS += \
     src/view_models_framework/field_backend_property.hpp \
     src/view_models_framework/field_backend_value.hpp \
     src/view_models_framework/field_backend_base.hpp \
+    src/view_models_framework/field_messages.hpp \
     src/view_models_framework/edit_field_backend_base.hpp \
     src/view_models_framework/double_field_backend.hpp \
     src/view_models_framework/drop_down_field_backend.hpp \
     src/view_models_framework/int_field_backend.hpp \
+    src/view_models_framework/label_field_backend.hpp \
     src/view_models_framework/memo_field_backend.hpp \
     src/view_models_framework/password_field_backend.hpp \
     src/view_models_framework/quantity_field_backend.hpp \
@@ -27,19 +29,19 @@ HEADERS += \
     src/view_models/basic_controls_page_view_model.hpp \
     src/view_models/simple_form_page_view_model.hpp \
     src/view_models/complex_form_page_view_model.hpp \
-    src/view_models/settings_page_view_model.hpp \
-    src/view_models/many_fields_view_model.hpp \
-    src/view_models_framework/field_messages.hpp
+    src/view_models/many_fields_view_model.hpp
 
 SOURCES += \
     src/main.cpp \
     src/view_models_framework/view_models_framework_registration.cpp \
     src/view_models_framework/abstract_view_model.cpp \
     src/view_models_framework/field_backend_base.cpp \
+    src/view_models_framework/field_messages.cpp \
     src/view_models_framework/edit_field_backend_base.cpp \
     src/view_models_framework/double_field_backend.cpp \
     src/view_models_framework/drop_down_field_backend.cpp \
     src/view_models_framework/int_field_backend.cpp \
+    src/view_models_framework/label_field_backend.cpp \
     src/view_models_framework/memo_field_backend.cpp \
     src/view_models_framework/password_field_backend.cpp \
     src/view_models_framework/quantity_field_backend.cpp \
@@ -49,9 +51,7 @@ SOURCES += \
     src/view_models/basic_controls_page_view_model.cpp \
     src/view_models/simple_form_page_view_model.cpp \
     src/view_models/complex_form_page_view_model.cpp \
-    src/view_models/settings_page_view_model.cpp \
-    src/view_models/many_fields_view_model.cpp \
-    src/view_models_framework/field_messages.cpp
+    src/view_models/many_fields_view_model.cpp
 
 RESOURCES += \
     qml/layout_1/qml.qrc \

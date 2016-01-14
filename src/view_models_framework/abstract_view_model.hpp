@@ -7,6 +7,7 @@
 #include "double_field_backend.hpp"
 #include "drop_down_field_backend.hpp"
 #include "int_field_backend.hpp"
+#include "label_field_backend.hpp"
 #include "memo_field_backend.hpp"
 #include "password_field_backend.hpp"
 #include "quantity_field_backend.hpp"

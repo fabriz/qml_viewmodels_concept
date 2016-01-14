@@ -6,6 +6,5 @@
         <file>SimpleScrollingFormPage.qml</file>
         <file>ComplexFormPage.qml</file>
         <file>ComplexTabbedFormPage.qml</file>
-        <file>SettingsPage.qml</file>
     </qresource>
 </RCC>

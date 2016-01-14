@@ -26,6 +26,7 @@ void registerTypes()
     qmlRegisterType<ViewModelsFramework::DoubleFieldBackend>("ViewModelsFramework", 1, 0, "DoubleFieldBackend");
     qmlRegisterType<ViewModelsFramework::DropDownFieldBackend>("ViewModelsFramework", 1, 0, "DropDownFieldBackend");
     qmlRegisterType<ViewModelsFramework::IntFieldBackend>("ViewModelsFramework", 1, 0, "IntFieldBackend");
+    qmlRegisterType<ViewModelsFramework::LabelFieldBackend>("ViewModelsFramework", 1, 0, "LabelFieldBackend");
     qmlRegisterType<ViewModelsFramework::MemoFieldBackend>("ViewModelsFramework", 1, 0, "MemoFieldBackend");
     qmlRegisterType<ViewModelsFramework::PasswordFieldBackend>("ViewModelsFramework", 1, 0, "PasswordFieldBackend");
     qmlRegisterType<ViewModelsFramework::QuantityFieldBackend>("ViewModelsFramework", 1, 0, "QuantityFieldBackend");
