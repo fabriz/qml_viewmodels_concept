@@ -22,6 +22,7 @@ class FieldBackendBase : public QObject
     Q_PROPERTY(QString label READ label NOTIFY labelChanged)
     Q_PROPERTY(bool enabled READ enabled NOTIFY enabledChanged)
     Q_PROPERTY(bool visible READ visible NOTIFY visibleChanged)
+    Q_PROPERTY(QString state READ state NOTIFY stateChanged)
     Q_PROPERTY(FieldMessages* statusMessages READ statusMessages CONSTANT)
 
 public:
@@ -34,17 +35,20 @@ public:
     QString label() const;
     bool enabled() const;
     bool visible() const;
+    QString state() const;
     FieldMessages* statusMessages();
 
 signals:
     void labelChanged();
     void enabledChanged();
     void visibleChanged();
+    void stateChanged();
 
 public slots:
     void setLabel(const QString& value);
     void setEnabled(bool value);
     void setVisible(bool value);
+    void setState(const QString& value);
 
 protected:
     friend class AbstractViewModel;
@@ -57,6 +61,7 @@ private:
     FieldBackendProperty<QString>   m_label;
     FieldBackendProperty<bool>      m_enabled;
     FieldBackendProperty<bool>      m_visible;
+    FieldBackendProperty<QString>   m_state;
     FieldMessages*                  m_statusMessages;
 };
 

@@ -12,4 +12,5 @@ Item {
 
     enabled: (__backendBase !== null) ? __backendBase.enabled : false
     visible: (__backendBase !== null) ? __backendBase.visible : true
+    state: (__backendBase !== null) ? __backendBase.state : ""
 }

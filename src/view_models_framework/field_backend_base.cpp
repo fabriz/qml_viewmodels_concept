@@ -54,6 +54,12 @@ bool FieldBackendBase::visible() const
 }
 
 
+QString FieldBackendBase::state() const
+{
+    return m_state;
+}
+
+
 FieldMessages* FieldBackendBase::statusMessages()
 {
     return m_statusMessages;
@@ -90,11 +96,22 @@ void FieldBackendBase::setVisible(bool value)
 }
 
 
+void FieldBackendBase::setState(const QString& value)
+{
+    if (m_state != value)
+    {
+        m_state = value;
+        emit stateChanged();
+    }
+}
+
+
 void FieldBackendBase::beginFieldUpdate()
 {
     m_label.storeCurrentValue();
     m_enabled.storeCurrentValue();
     m_visible.storeCurrentValue();
+    m_state.storeCurrentValue();
 
     m_statusMessages->beginFieldUpdate();
 }
@@ -115,6 +132,11 @@ void FieldBackendBase::endFieldUpdate()
     if (m_visible.isCurrentValueDifferentFromStoredValue())
     {
         emit visibleChanged();
+    }
+
+    if (m_state.isCurrentValueDifferentFromStoredValue())
+    {
+        emit stateChanged();
     }
 
     m_statusMessages->endFieldUpdate();
