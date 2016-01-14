@@ -109,4 +109,17 @@ void AbstractViewModel::deleteFieldsMessagesBySeverity(FieldMessage::MessageSeve
 }
 
 
+void AbstractViewModel::addFieldMessageByFieldId(int fieldId, FieldMessage::MessageSeverity severity, const QString& message)
+{
+    QList<FieldBackendBase*> fields = QObject::findChildren<FieldBackendBase*>(QString(), Qt::FindDirectChildrenOnly);
+    for (FieldBackendBase* field : fields)
+    {
+        if (field->fieldId() == fieldId)
+        {
+            field->statusMessages()->addMessage(severity, message);
+        }
+    }
+}
+
+
 } // namespace ViewModelsFramework

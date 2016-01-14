@@ -34,6 +34,7 @@ public:
 
     void clearFieldsMessages();
     void deleteFieldsMessagesBySeverity(FieldMessage::MessageSeverity minSeverityToDelete);
+    void addFieldMessageByFieldId(int fieldId, FieldMessage::MessageSeverity severity, const QString& message);
 
 signals:
     void modifiedChanged();
