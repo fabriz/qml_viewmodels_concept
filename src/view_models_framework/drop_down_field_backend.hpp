@@ -92,6 +92,9 @@ public:
     int value() const;
     QAbstractListModel* model() const;
 
+    bool isChangedFromOriginalValue() const override;
+    void restoreOriginalValue() override;
+
 signals:
     void valueChanged();
 

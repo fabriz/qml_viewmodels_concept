@@ -38,6 +38,9 @@ public:
     QString state() const;
     FieldMessages* statusMessages();
 
+    virtual bool isChangedFromOriginalValue() const;
+    virtual void restoreOriginalValue();
+
 signals:
     void labelChanged();
     void enabledChanged();

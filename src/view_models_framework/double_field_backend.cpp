@@ -66,6 +66,18 @@ int DoubleFieldBackend::decimals() const
 }
 
 
+bool DoubleFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void DoubleFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 bool DoubleFieldBackend::isValueInRange() const
 {
     return ((m_value >= m_minValue) && (m_value <= m_maxValue));

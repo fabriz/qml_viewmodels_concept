@@ -89,6 +89,63 @@ void AbstractViewModel::do_updateView()
 }
 
 
+bool AbstractViewModel::areFieldsChangedFromOriginalValues() const
+{
+    QList<FieldBackendBase*> fields = QObject::findChildren<FieldBackendBase*>(QString(), Qt::FindDirectChildrenOnly);
+    for (const FieldBackendBase* field : fields)
+    {
+        if (field->isChangedFromOriginalValue())
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+void AbstractViewModel::restoreOriginalFieldValues()
+{
+    // Avoid reentrant calls
+    if (m_isUpdatingView)
+    {
+        return;
+    }
+
+    m_isUpdatingView = true;
+
+    // Get a list of child fields
+    QList<FieldBackendBase*> fields = QObject::findChildren<FieldBackendBase*>(QString(), Qt::FindDirectChildrenOnly);
+
+    // Prepare fields for the update and restore original values
+    for (FieldBackendBase* field : fields)
+    {
+        field->blockSignals(true);
+        field->beginFieldUpdate();
+        field->restoreOriginalValue();
+    }
+
+    try
+    {
+        // Let the derived class update the view
+        do_updateView();
+    }
+    catch (...)
+    {
+        qDebug("AbstractViewModel::updateView() - Exception caught calling do_updateView() !!!");
+    }
+
+    // Finalize fields update
+    for (FieldBackendBase* field : fields)
+    {
+        field->blockSignals(false);
+        field->endFieldUpdate();
+    }
+
+    m_isUpdatingView = false;
+}
+
+
 void AbstractViewModel::clearFieldsMessages()
 {
     QList<FieldBackendBase*> fields = QObject::findChildren<FieldBackendBase*>(QString(), Qt::FindDirectChildrenOnly);

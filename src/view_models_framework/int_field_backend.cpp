@@ -53,6 +53,18 @@ bool IntFieldBackend::isValueInRange() const
 }
 
 
+bool IntFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void IntFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void IntFieldBackend::setValue(int value)
 {
     if (m_value != value)

@@ -40,6 +40,9 @@ public:
     double scalingFactor() const;
     double valueOffset() const;
 
+    bool isChangedFromOriginalValue() const override;
+    void restoreOriginalValue() override;
+
     bool isValueInRange() const;
 
 signals:

@@ -31,6 +31,18 @@ bool SwitchFieldBackend::value() const
 }
 
 
+bool SwitchFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void SwitchFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void SwitchFieldBackend::setValue(bool value)
 {
     if (m_value != value)

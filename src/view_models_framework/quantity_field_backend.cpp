@@ -122,6 +122,18 @@ double QuantityFieldBackend::valueOffset() const
 }
 
 
+bool QuantityFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void QuantityFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 bool QuantityFieldBackend::isValueInRange() const
 {
     return ((m_value >= m_minValue) && (m_value <= m_maxValue));

@@ -66,6 +66,17 @@ FieldMessages* FieldBackendBase::statusMessages()
 }
 
 
+bool FieldBackendBase::isChangedFromOriginalValue() const
+{
+    return false;
+}
+
+
+void FieldBackendBase::restoreOriginalValue()
+{
+}
+
+
 void FieldBackendBase::setLabel(const QString& value)
 {
     if (m_label != value)

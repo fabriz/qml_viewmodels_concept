@@ -33,6 +33,9 @@ public:
 
     void updateView();
 
+    bool areFieldsChangedFromOriginalValues() const;
+    void restoreOriginalFieldValues();
+
     void clearFieldsMessages();
     void deleteFieldsMessagesBySeverity(FieldMessage::MessageSeverity minSeverityToDelete);
     void addFieldMessageByFieldId(int fieldId, FieldMessage::MessageSeverity severity, const QString& message);

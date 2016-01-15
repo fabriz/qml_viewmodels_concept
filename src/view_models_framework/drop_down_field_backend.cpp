@@ -110,6 +110,19 @@ QAbstractListModel* DropDownFieldBackend::model() const
 }
 
 
+
+bool DropDownFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void DropDownFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void DropDownFieldBackend::setValue(int value)
 {
     if (m_value != value)

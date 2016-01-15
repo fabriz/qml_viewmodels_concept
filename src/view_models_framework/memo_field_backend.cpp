@@ -31,6 +31,18 @@ QString MemoFieldBackend::value() const
 }
 
 
+bool MemoFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void MemoFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void MemoFieldBackend::setValue(const QString& value)
 {
     if (m_value != value)

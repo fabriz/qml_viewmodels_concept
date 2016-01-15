@@ -26,6 +26,9 @@ public:
     int minValue() const;
     int maxValue() const;
 
+    bool isChangedFromOriginalValue() const override;
+    void restoreOriginalValue() override;
+
     bool isValueInRange() const;
 
 signals:

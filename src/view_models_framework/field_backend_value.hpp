@@ -25,6 +25,11 @@ public:
     {
     }
 
+    const TYPE& originalValue() const
+    {
+        return m_originalValue;
+    }
+
     operator const TYPE& () const
     {
         return *m_value;

@@ -21,6 +21,9 @@ public:
 
     bool value() const;
 
+    bool isChangedFromOriginalValue() const override;
+    void restoreOriginalValue() override;
+
 signals:
     void valueChanged();
 

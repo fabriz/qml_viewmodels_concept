@@ -31,6 +31,18 @@ QString LabelFieldBackend::value() const
 }
 
 
+bool LabelFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void LabelFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void LabelFieldBackend::setValue(const QString& value)
 {
     if (m_value != value)

@@ -37,6 +37,18 @@ QString PasswordFieldBackend::placeholderText() const
 }
 
 
+bool PasswordFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void PasswordFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void PasswordFieldBackend::setValue(const QString& value)
 {
     if (m_value != value)

@@ -24,6 +24,9 @@ public:
     QString value() const;
     QString placeholderText() const;
 
+    bool isChangedFromOriginalValue() const override;
+    void restoreOriginalValue() override;
+
 signals:
     void valueChanged();
     void placeholderTextChanged();

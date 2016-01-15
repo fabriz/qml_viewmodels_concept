@@ -37,6 +37,18 @@ QString TextFieldBackend::placeholderText() const
 }
 
 
+bool TextFieldBackend::isChangedFromOriginalValue() const
+{
+    return m_value.isCurrentValueDifferentFromOriginalValue();
+}
+
+
+void TextFieldBackend::restoreOriginalValue()
+{
+    setValue(m_value.originalValue());
+}
+
+
 void TextFieldBackend::setValue(const QString& value)
 {
     if (m_value != value)
